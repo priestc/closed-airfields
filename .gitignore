@@ -1,0 +1,6 @@
+*.pyc
+manage.py
+settings.py
+env
+media/images
+media/css/.sass-cache
