@@ -12,10 +12,7 @@ def display_airfield(request, slug):
 
 def browse_by(request, var):
     return None
-
-def latest_changes(request):
-    return None
-
+    
 def search(request):
     return None
 

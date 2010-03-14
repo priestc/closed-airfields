@@ -4,11 +4,6 @@
 {% block head %}
 {{ block.super }}
     <link href="{{ MEDIA_URL }}/css/stylesheets/airfield.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <link href="{{ MEDIA_URL }}css/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <link href="{{ MEDIA_URL }}css/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
-    <!--[if lt IE 8]>
-    <link href="{{ MEDIA_URL }}css/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <![endif]-->
 {% endblock %}
 
 {% block content %}
@@ -23,3 +18,5 @@
     </div>
     
 {% endblock %}
+
+/etc/init.d/apache2 reload

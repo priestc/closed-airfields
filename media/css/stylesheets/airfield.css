@@ -9,7 +9,7 @@ div.figure {
 /* line 8, ../src/airfield.sass */
 div.figure div.caption {
   font-size: smaller;
-  background: #aaaaaa;
+  background: #CCCCCC;
   padding: 3px;
 }
 /* line 13, ../src/airfield.sass */
@@ -21,8 +21,8 @@ div.figure img {
 /* line 17, ../src/airfield.sass */
 div#article {
   width: 800px;
-  border: 1px solid green;
-  background: #dddddd;
+  border: 1px solid #CCCCCC;
+  background: #F1F1F1;
   padding: 10px;
   margin: 0 auto 0 auto;
 }

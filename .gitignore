@@ -1,6 +1,6 @@
 *.pyc
 manage.py
-settings.py
+settings_local.py
 env
 media/images
 media/css/.sass-cache

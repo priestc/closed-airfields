@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Lastest Revisions{% endblock %}
+
+{% block head %}
+{{ block.super }}
+    <link href="{{ MEDIA_URL }}/css/stylesheets/latest.css" media="screen, projection" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+    <h1>Latest Airfields by revision date:</h1>
+    <ul>
+    {% for obj in latest %}
+        <li>{{obj.revised}} <a href="{{obj.get_absolute_url}}">{{obj.name}}</a></li>
+    {% endfor %}
+    </ul>
+    
+{% endblock %}
