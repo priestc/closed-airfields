@@ -25,6 +25,6 @@ def airfield(request, slug):
                            iconanchor=(16,16))
                            
     marker = GMarker(airfield.location.wkt, icon=icon)
-    google = GoogleMap(markers=[marker])
+    google = GoogleMap(markers=[marker], map_type='satellite')
     
     return locals()

@@ -12,7 +12,7 @@ THUMB = """<a title="Click for full"
               <img src="{thumburl}" alt="thumbnail image"/>
            </a>""".replace("\n", "")
 
-loc_help = "EX: POINT (-46.1 103.37), first number is north/south, second is east/west"
+loc_help = "EX: POINT (-103.37 46.1), first number is east/west, second is north/south"
 
 class Airfield(models.Model):
     name = models.CharField(max_length=64)
