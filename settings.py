@@ -78,3 +78,5 @@ INSTALLED_APPS += (
     'django.contrib.admin',
     'django.contrib.gis',
 )
+
+GOOGLE_MAPS_API_KEY = "ABQIAAAAtDznsRv92g_KZ0HK9mBD5RT71itkaYOw9joYvsUPOT1ZZmMpvRSZdPHUjXzvE57FZYGXkxsndhjKEg"
