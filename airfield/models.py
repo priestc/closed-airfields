@@ -16,8 +16,8 @@ class Airfield(models.Model):
     name = models.CharField(max_length=64)
     slug = models.SlugField(max_length=40)
     location = models.PointField(null=False, blank=False)
-    body = models.TextField()
-    revised = models.DateField()
+    body = models.TextField(blank=True)
+    revised = models.DateField(null=True, blank=True)
     
     def __unicode__(self):
         return self.name
@@ -27,6 +27,10 @@ class Airfield(models.Model):
         return ('airfield', [self.slug])
         
     def render_with_images(self):
+        """
+        Replace the {1997} tags in teh body with the images and return the
+        result.
+        """
         
         #add an 'i' to the front of each tag to please format()
         body = re.sub(r'{(.+)}', r'{i\1}', self.body)

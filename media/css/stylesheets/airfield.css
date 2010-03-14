@@ -1,6 +1,6 @@
 /* line 1, ../src/airfield.sass */
 div.figure {
-  background: #dfdfdf;
+  background: #ffffff;
   border: 1px solid #333333;
   width: 530px;
   margin: 5px auto 5px auto;
@@ -16,4 +16,25 @@ div.figure div.caption {
 div.figure img {
   margin: 5px auto 5px auto;
   border: 0px;
+}
+
+/* line 17, ../src/airfield.sass */
+div#article {
+  width: 800px;
+  border: 1px solid green;
+  background: #dddddd;
+  padding: 10px;
+  margin: 0 auto 0 auto;
+}
+
+/* line 24, ../src/airfield.sass */
+div#revised {
+  width: 800px;
+  margin: 0 auto 0 auto;
+  font-size: x-small;
+}
+
+/* line 29, ../src/airfield.sass */
+h1 {
+  text-align: center;
 }

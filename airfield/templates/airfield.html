@@ -17,6 +17,9 @@
     {% if request.user.is_authenticated %}
     <a href="{{ airfield.get_admin_url }}">Edit this page</a>
     {% endif %}
+    <div id="revised">Revised: {{airfield.revised|date:"M j, Y" }}</div>
+    <div id="article">
     {{ airfield.render_with_images|linebreaks }}
-
+    </div>
+    
 {% endblock %}
