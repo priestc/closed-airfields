@@ -28,5 +28,5 @@ class FigureAdmin(admin.ModelAdmin):
 
 ########################################
 
-admin.site.register(Airfield, Map)
+admin.site.register(Airfield, NoMap)
 admin.site.register(Figure, FigureAdmin)

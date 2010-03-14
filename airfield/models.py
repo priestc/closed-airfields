@@ -12,10 +12,12 @@ THUMB = """<a title="Click for full"
               <img src="{thumburl}" alt="thumbnail image"/>
            </a>""".replace("\n", "")
 
+loc_help = "EX: POINT (-46.1 103.37), first number is north/south, second is east/west"
+
 class Airfield(models.Model):
     name = models.CharField(max_length=64)
     slug = models.SlugField(max_length=40)
-    location = models.PointField(null=False, blank=False)
+    location = models.PointField(null=False, blank=False, help_text=loc_help)
     body = models.TextField(blank=True)
     revised = models.DateField(null=True, blank=True)
     

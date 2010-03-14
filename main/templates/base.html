@@ -2,6 +2,8 @@
 <html>
     <head>
         {% block head %}
+            {{ google.style }}
+            {{ google.scripts }}
             <link href="{{ MEDIA_URL }}css/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
             <link href="{{ MEDIA_URL }}css/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
             <!--[if lt IE 8]>
@@ -10,7 +12,7 @@
         {% endblock %}
         <title>{% block title %}{% endblock %} - Site Name</title>
     </head>
-    <body>
+    <body {{ google.onload }} {{ google.onunload }}>
         {% include "header.html" %}
         {% block content %}{% endblock %}
     </body>
