@@ -1,0 +1,3 @@
+notes:
+
+libjpeg62-dev needed to compile PIL with jpeg support
