@@ -2,6 +2,7 @@ import Image
 import os
 import re
 
+from django.contrib.localflavor.us.models import USStateField
 from django.conf import settings
 from django.utils.safestring import mark_safe
 from django.contrib.gis.db import models
@@ -20,6 +21,8 @@ class Airfield(models.Model):
     body = models.TextField(blank=True)
     revised = models.DateField(null=True, blank=True)
     runway = models.PolygonField(null=True, blank=True)
+    state = USStateField(blank=True, null=True)
+    remarks = models.TextField(blank=True)
     
     objects = GeoManager()
     
@@ -60,7 +63,7 @@ class Figure(models.Model):
     caption = models.TextField()
     name = models.CharField(max_length=16)
     airfield = models.ForeignKey("Airfield")
-    contrib = models.CharField(max_length=56, blank=True)
+    contrib = models.TextField(blank=True)
     
     def make_thumb(self, size):
         """
