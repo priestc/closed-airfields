@@ -33,6 +33,16 @@ class Airfield(models.Model):
     def get_absolute_url(self):
         return ('airfield', [self.slug])
     
+    def has_loc(self):
+        return bool(self.location)
+    has_loc.boolean = True
+    has_loc.short_description = "Coordinates"
+    
+    def has_runway(self):
+        return bool(self.runway)
+    has_runway.boolean = True
+    has_runway.short_description = "Runway"
+    
     def get_admin_url(self):
         "Return an url for the admin"
         return "/admin/airfield/airfield/{0}/".format(self.id)
