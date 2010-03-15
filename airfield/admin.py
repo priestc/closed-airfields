@@ -10,7 +10,7 @@ class FigureInline(admin.StackedInline):
     extra = 1
 
 class Map(GoogleAdmin):
-    fields = ('name', 'slug', 'lat_lng', 'location', 'revised', 'body')
+    fields = ('name', 'slug', 'lat_lng', 'location', 'runway', 'revised', 'body')
     list_display = ('name', )
     prepopulated_fields = {"slug": ("name",)}
     inlines = [FigureInline]
