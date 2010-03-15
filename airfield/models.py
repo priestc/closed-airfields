@@ -5,6 +5,7 @@ import re
 from django.conf import settings
 from django.utils.safestring import mark_safe
 from django.contrib.gis.db import models
+from django.contrib.gis.db.models import GeoManager
 
 THUMB = """<a title="Click for full"
               href="{fullurl}"
@@ -20,6 +21,7 @@ class Airfield(models.Model):
     revised = models.DateField(null=True, blank=True)
     runway = models.PolygonField(null=True, blank=True)
     
+    objects = GeoManager()
     
     def __unicode__(self):
         return self.name

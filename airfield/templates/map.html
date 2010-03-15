@@ -9,6 +9,28 @@
 {% block content %}
     <h1>Airfields Map</h1>
     
+    <script type="text/javascript">
+    
+    function dec(f) {
+        function wrapper() {
+            f();
+            var MyOverlay = new GTileLayerOverlay(
+               new GTileLayer(null, null, null, {
+                  tileUrlTemplate: 'http://localhost:8000/airfield/overlay/{X}_{Y}_{Z}.png',
+                  isPng:true,
+                  opacity:1.0}
+               )
+            );   
+            geodjango.map.addOverlay(MyOverlay)
+        }        
+        return wrapper   
+    }
+
+    //add functionality to the load function
+    geodjango.map_load = dec(geodjango.map_load)
+    
+    </script>
+    
     <div id="{{ google.dom_id }}"></div>
     
 {% endblock %}

@@ -28,4 +28,9 @@ urlpatterns = patterns('',
         name='airfield',
     ),
     
+    (
+        r'overlay/(?P<x>[0-9]{1,5})_(?P<y>[0-9]{1,5})_(?P<z>[0-9]{1,2})\.png$',
+        'airfield.views.overlay'
+    ),
+    
 )
