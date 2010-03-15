@@ -10,13 +10,14 @@ from models import Airfield, Figure
 class AirfieldAdminForm(forms.ModelForm):
     class Meta:
         model = Airfield
-        widgets = {"body": forms.Textarea(attrs={"cols": 85, "rows": 25}),
-                   "remarks": forms.TextInput()}
+        widgets = {"body": forms.Textarea(attrs={"cols": 85, "rows": 35}),
+                   "remarks": forms.TextInput(attrs={'style': "width:60em"})}
 
 class FigureAdminForm(forms.ModelForm):
     class Meta:
         model = Figure
-        widgets = {"contrib": forms.TextInput()}
+        widgets = {"contrib": forms.TextInput(),
+                   "caption": forms.Textarea(attrs={"cols": 30, "rows": 3})}
         
 
 ###############################################################################
@@ -42,10 +43,11 @@ class AirfieldAdmin(GoogleAdmin):
     )
     
     form = AirfieldAdminForm
-    list_display = ('name', )
+    list_display = ('name', 'remarks', 'revised')
     prepopulated_fields = {"slug": ("name",)}
     inlines = [FigureInline]
     readonly_fields = ('lat_lng', )
+    save_on_top = True
 
 
 ########################################

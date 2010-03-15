@@ -17,7 +17,7 @@ THUMB = """<a title="Click for full"
 class Airfield(models.Model):
     name = models.CharField(max_length=64)
     slug = models.SlugField(max_length=40)
-    location = models.PointField(null=False, blank=False)
+    location = models.PointField(null=True, blank=False)
     body = models.TextField(blank=True)
     revised = models.DateField(null=True, blank=True)
     runway = models.PolygonField(null=True, blank=True)
