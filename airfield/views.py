@@ -2,7 +2,7 @@ from models import Airfield
 from annoying.decorators import render_to
 from django.views.generic.list_detail import object_detail
 from django.contrib.gis.maps.google import GoogleMap
-from django.contrib.gis.maps.google.overlays import GMarker, GIcon
+from django.contrib.gis.maps.google.overlays import GMarker, GIcon, GPolygon
 from django.shortcuts import get_object_or_404
 
 @render_to('map.html')
@@ -23,8 +23,15 @@ def airfield(request, slug):
                            shadow='http://example.com',
                            iconsize=(32,32),
                            iconanchor=(16,16))
-                           
-    marker = GMarker(airfield.location.wkt, icon=icon)
-    google = GoogleMap(markers=[marker], map_type='satellite')
+    
+    kwargs = {}
+    if airfield.runway:                      
+        kwargs['polygons'] = [GPolygon(airfield.runway)]
+    else:
+        kwargs['markers'] = [GMarker(airfield.location, icon=icon)]
+        kwargs['zoom'] = 15
+        kwargs['center'] = airfield.location
+    
+    google = GoogleMap(map_type='satellite', **kwargs)
     
     return locals()

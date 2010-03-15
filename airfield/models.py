@@ -12,14 +12,14 @@ THUMB = """<a title="Click for full"
               <img src="{thumburl}" alt="thumbnail image"/>
            </a>""".replace("\n", "")
 
-loc_help = "EX: POINT (-103.37 46.1), first number is east/west, second is north/south"
-
 class Airfield(models.Model):
     name = models.CharField(max_length=64)
     slug = models.SlugField(max_length=40)
-    location = models.PointField(null=False, blank=False, help_text=loc_help)
+    location = models.PointField(null=False, blank=False)
     body = models.TextField(blank=True)
     revised = models.DateField(null=True, blank=True)
+    runway = models.PolygonField(null=True, blank=True)
+    
     
     def __unicode__(self):
         return self.name
@@ -27,6 +27,14 @@ class Airfield(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('airfield', [self.slug])
+    
+    def get_admin_url(self):
+        "Return an url for the admin"
+        return "/admin/airfield/airfield/{0}/".format(self.id)
+
+    def lat_lng(self):
+        "Return the lat/lng of the point field for use in the admin"
+        return "(lat: {1}, long: {0})".format(self.location.x, self.location.y)
         
     def render_with_images(self):
         """

@@ -9,17 +9,12 @@ class FigureInline(admin.StackedInline):
     model = Figure
     extra = 1
 
-class Base(object):
+class Map(GoogleAdmin):
+    fields = ('name', 'slug', 'lat_lng', 'location', 'revised', 'body')
     list_display = ('name', )
     prepopulated_fields = {"slug": ("name",)}
     inlines = [FigureInline]
-
-
-class NoMap(Base, admin.ModelAdmin):
-    pass
-
-class Map(Base, GoogleAdmin):
-    pass
+    readonly_fields = ('lat_lng', )
 
 ########################################
 
@@ -28,5 +23,5 @@ class FigureAdmin(admin.ModelAdmin):
 
 ########################################
 
-admin.site.register(Airfield, NoMap)
+admin.site.register(Airfield, Map)
 admin.site.register(Figure, FigureAdmin)
