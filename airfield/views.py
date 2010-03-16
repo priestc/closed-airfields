@@ -54,4 +54,4 @@ Disallow: /fl-uploads/*
 Allow: /"""
     
     from django.http import HttpResponse
-    return HttpResponse(t, mimetype="text/html")
+    return HttpResponse(t, mimetype="text/plain")
