@@ -62,6 +62,7 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS += (
     'airfield',
+    'states',
     'main',
     'django_extensions',
 

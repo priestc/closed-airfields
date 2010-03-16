@@ -68,6 +68,22 @@ class Airfield(models.Model):
         
         return mark_safe(body.format(**img_mapping))
 
+    def save(self, *args, **kwargs):
+        """
+        If the airfield is about to be saved and it has no state, fill it in
+        automatically based on the coordinates
+        """
+        
+        if self.location and not self.state:
+            print self.location
+            from states.models import USState
+            state = getattr(
+              USState.goon(mpoly__contains=self.location), 'code', None
+            )
+            print "state: ", state
+            self.state = state
+        super(Airfield, self).save(*args, **kwargs)
+
 class Figure(models.Model):
     image = models.ImageField(upload_to="images")
     caption = models.TextField()
