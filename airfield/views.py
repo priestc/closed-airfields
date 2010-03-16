@@ -46,3 +46,10 @@ def airfield(request, slug):
     google = GoogleMap(map_type='satellite', **kwargs)
     
     return locals()
+
+def google(request):
+    
+    t="google-site-verification: google3c3ae0ecc419f41b.html"
+    
+    from django.http import HttpResponse
+    return HttpResponse(t, mimetype="text/html")
