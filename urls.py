@@ -36,7 +36,7 @@ urlpatterns = patterns('',
         name="home"
     ),
     
-    (r'google3c3ae0ecc419f41b\.html', 'airfield.views.google'),
+    (r'robots.txt', 'airfield.views.robot'),
     
     ###################################
     

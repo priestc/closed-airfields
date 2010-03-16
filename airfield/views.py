@@ -47,9 +47,11 @@ def airfield(request, slug):
     
     return locals()
 
-def google(request):
+def robot(request):
     
-    t="google-site-verification: google3c3ae0ecc419f41b.html"
+    t="""User-agent: *
+Disallow: /fl-uploads/*
+Allow: /"""
     
     from django.http import HttpResponse
     return HttpResponse(t, mimetype="text/html")
