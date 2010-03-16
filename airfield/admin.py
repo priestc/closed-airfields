@@ -43,7 +43,7 @@ class AirfieldAdmin(GoogleAdmin):
     )
     
     form = AirfieldAdminForm
-    list_display = ('name', 'has_loc', 'has_runway', 'remarks', 'revised')
+    list_display = ('name', 'has_loc', 'has_runway', 'state', 'remarks', 'revised')
     prepopulated_fields = {"slug": ("name",)}
     search_fields = ('name', )
     list_filter = ('state', )
